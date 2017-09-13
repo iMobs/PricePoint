@@ -1,15 +1,15 @@
 const db = require('../');
 
-const Profile = db.Model.extend({
-  tableName: 'profiles',
+class Profile extends db.Model {
+  get tableName() { return 'profiles'; }
 
-  auths: function() {
+  auths() {
     return this.hasMany('Auth');
-  },
+  }
 
-  followedProducts: function() {
+  followedProducts() {
     return this.belongsToMany('Product', 'followed_products');
-  },
-});
+  }
+}
 
 module.exports = db.model('Profile', Profile);

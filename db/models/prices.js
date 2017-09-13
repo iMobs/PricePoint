@@ -1,8 +1,8 @@
 const db = require('../');
 
-const Price = db.Model.extend({
-  tableName: 'prices',
-  hasTimestamps: true,
-});
+class Price extends db.Model {
+  get tableName() { return 'prices'; }
+  get hasTimestamps() { return true; }
+}
 
 module.exports = db.model('Price', Price);

@@ -1,8 +1,7 @@
 const db = require('../');
 
-const Vendor = db.Model.extend({
-  tableName: 'vendors',
-
-});
+class Vendor extends db.Model {
+  get tableName() { return 'vendors'; }
+}
 
 module.exports = db.model('Vendor', Vendor);

@@ -1,7 +1,7 @@
 const db = require('../');
 
-const ProductUrl = db.Model.extend({
-  tableName: 'product_urls',
-});
+class ProductUrl extends db.Model {
+  get tableName() { return 'product_urls'; }
+}
 
 module.exports = db.model('ProductUrl', ProductUrl);

@@ -1,21 +1,21 @@
 const db = require('../');
 
-const Product = db.Model.extend({
-  tableName: 'products',
+class Product extends db.Model {
+  get tableName() { return 'products'; }
 
-  followers: function() {
+  followers() {
     return this.belongsToMany('Profile', 'followed_products');
-  },
+  }
 
-  prices: function() {
+  prices() {
     return this.belongsToMany('Vendor')
       .through('Price');
-  },
+  }
 
-  vendors: function() {
+  vendors() {
     return this.belongsToMany('Vendor')
       .through('ProductUrl');
-  },
-});
+  }
+}
 
 module.exports = db.model('Product', Product);
