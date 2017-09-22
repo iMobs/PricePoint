@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, ButtonGroup, Popover } from 'react-bootstrap';
+import { Button, ButtonGroup } from 'react-bootstrap';
 import Header from './Header.jsx';
 import { connect } from 'react-redux';
 import {LineChart} from 'react-easy-chart';
@@ -114,7 +114,6 @@ class LineGraph extends React.Component {
           xType={'time'}
           axes
           yAxisOrientRight
-          dataPoints
           yDomainRange={[this.state.minDomain, this.state.maxDomain]}
           xDomainRange={[this.state.dateRange, this.state.today]}
           axisLabels={{x: 'Date', y: 'Price' }}
