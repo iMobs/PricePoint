@@ -49,7 +49,7 @@ const grabPrices = (upc) => {
   })
     .then(results => {
       var vendors = [];
-      var colors = ['blue', 'red', 'yellow', 'purple'];
+      var colors = ['blue', 'red', 'yellow', 'green'];
       for (let vendor in results.data.vendors) {
         var obj = normalizeData(vendor, results.data.vendors[vendor]);
         obj.color = colors.pop();
@@ -87,6 +87,7 @@ class LineGraph extends React.Component {
         console.log('The Error in the is', err );
       });
   }
+
   onDateChange(event) {
     this.setState({
       ...this.state,
@@ -118,8 +119,6 @@ class LineGraph extends React.Component {
           axisLabels={{x: 'Date', y: 'Price' }}
           grid
           datePattern={'%Y-%m-%dT%H:%M:%S'}
-          vertical
-          interpolate={'cardinal'}
           lineColors={this.state.vendors.map(vendor => {
             return vendor.color;
           })}
